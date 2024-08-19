@@ -1,10 +1,16 @@
 import React from 'react';
-import PokemonCard from './components/Pokemon/Card';
+import Header from './components/Pages/Header';
+import Hero from './components/Pages/Hero';
+import Features from './components/Pages/Features';
+import Footer from './components/Pages/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <PokemonCard pokemonName="pikachu" />
+    <div className="font-poppins">
+      <Header />
+      <Hero />
+      <Features />
+      <Footer />
     </div>
   );
 }
