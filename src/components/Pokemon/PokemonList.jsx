@@ -4,7 +4,7 @@ import PokemonCard from './PokemonCard';
 import Loading from '../Utils/Loading';
 import Error from '../Utils/Error';
 
-export default function PokemonList() {
+export default function PokemonList({ searchQuery }) {      // value of the input filter passed as a Props
   const [pokemonList, setPokemonList] = useState([]);   // a state to store data from API 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,6 +15,10 @@ export default function PokemonList() {
   const loadMorePokemon = () => {
     setOffset((prevOffset) => prevOffset + limit);        // increase the offset to load more Pokémon
   };
+
+  const filteredPokemonList = pokemonList.filter(pokemon =>
+    pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())      // filter pokemon list based on search query
+  );
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)    // initial API request
@@ -51,8 +55,8 @@ export default function PokemonList() {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        {pokemonList.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
+        {filteredPokemonList.map((pokemon) => (
+          <PokemonCard key={pokemon.id + crypto.randomUUID()} pokemon={pokemon} />
         ))}
       </div>
 

@@ -4,6 +4,7 @@ import Header from './components/Pages/Header';
 import Footer from './components/Pages/Footer';
 import Hero from './components/Pages/Hero';
 import Pokedex from './components/Pokemon/Pokedex';
+import { useState } from 'react';
 
 /*
   Header and Footer will always be displayed 
@@ -11,13 +12,16 @@ import Pokedex from './components/Pokemon/Pokedex';
   each PATH is associated with an element 
 */
 function App() {
+
+  const [searchQuery, setSearchQuery] = useState('');  // manage the search query
+
   return (
     <div className="font-poppins">
       <Router>              
-        <Header />    
+        <Header setSearchQuery={setSearchQuery}/>    
         <Routes>
           <Route path="/" element={<Hero />} />         
-          <Route path="/pokedex" element={<Pokedex />} />
+          <Route path="/pokedex" element={<Pokedex searchQuery={searchQuery}/>} />
         </Routes>
         <Footer />
       </Router>

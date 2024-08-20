@@ -1,10 +1,10 @@
 import React from 'react';
 import PokemonList from './PokemonList';
 
-function Pokedex() {
+function Pokedex({ searchQuery }) {
   return (
     <div className="bg-gray-100 min-h-screen">
-      <PokemonList />  
+      <PokemonList searchQuery={searchQuery}/>  
     </div>
   );
 }
