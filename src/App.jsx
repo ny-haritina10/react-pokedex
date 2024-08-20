@@ -13,7 +13,7 @@ import Pokedex from './components/Pokemon/Pokedex';
 function App() {
   return (
     <div className="font-poppins">
-      <Router>
+      <Router>              
         <Header />    
         <Routes>
           <Route path="/" element={<Hero />} />         
