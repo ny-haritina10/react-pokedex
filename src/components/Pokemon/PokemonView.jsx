@@ -9,7 +9,7 @@ export default function PokemonView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [currentId, setCurrentId] = useState(id);
+  const [currentId, setCurrentId] = useState(Number(id));     // type cast because id from param is s String
 
   const navigate = useNavigate();
   const handleBack = () => {
@@ -42,6 +42,8 @@ export default function PokemonView() {
       });
   }, [ currentId ]);       // make new api call each times id is updated or changed 
 
+  console.log(currentId)
+
   if (loading) return <Loading />;
   if (error) return <Error message={error.message} />;
 
@@ -61,6 +63,7 @@ export default function PokemonView() {
         <button
           onClick={handlePrevious}
           className="bg-gray-500 text-white px-6 py-3 rounded-full hover:bg-gray-700 transition duration-300"
+          disabled={currentId === 1 ? true : false}
         >
           Previous
         </button>
