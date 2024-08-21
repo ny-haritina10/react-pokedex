@@ -4,6 +4,7 @@ import Header from './components/Pages/Header';
 import Footer from './components/Pages/Footer';
 import Hero from './components/Pages/Hero';
 import Pokedex from './components/Pokemon/Pokedex';
+import PokemonView from './components/Pokemon/PokemonView';
 import { useState } from 'react';
 
 /*
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />         
           <Route path="/pokedex" element={<Pokedex searchQuery={searchQuery}/>} />
+          <Route path="/pokemon/:id" element={<PokemonView />}/>
         </Routes>
         <Footer />
       </Router>

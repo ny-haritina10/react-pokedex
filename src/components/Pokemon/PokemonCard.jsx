@@ -1,8 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function PokemonCard({ pokemon }) {
+
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/pokemon/${pokemon.id}`);
+  };
+
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md text-center">
+    <div 
+      className="cursor-pointer bg-white shadow-md rounded-lg p-4 text-center hover:shadow-xl transition duration-300"
+      onClick={handleCardClick}
+    >
       <img
         src={pokemon.sprites.front_default}
         alt={pokemon.name}
