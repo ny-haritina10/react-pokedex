@@ -42,8 +42,6 @@ export default function PokemonView() {
       });
   }, [ currentId ]);       // make new api call each times id is updated or changed 
 
-  console.log(currentId)
-
   if (loading) return <Loading />;
   if (error) return <Error message={error.message} />;
 
