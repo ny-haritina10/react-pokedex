@@ -9,7 +9,7 @@ export default function PokemonView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [currentId, setCurrentId] = useState(Number(id));     // type cast because id from param is s String
+  const [currentId, setCurrentId] = useState(Number(id));     // type cast because id from param is string
 
   const navigate = useNavigate();
   const handleBack = () => {
@@ -52,9 +52,7 @@ export default function PokemonView() {
         <h1 className="text-3xl font-bold mt-4 capitalize">{pokemon.name}</h1>
         <p className="mt-2">Height: {pokemon.height}</p>
         <p className="mt-2">Weight: {pokemon.weight}</p>
-        <p className="mt-2">Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>
-        
-        {/* Add more details as needed */}
+        <p className="mt-2">Type: {pokemon.types.map(type => type.type.name).join(', ')}</p>        
       </div>
 
       <div className="flex justify-between mt-8 w-full max-w-md">
